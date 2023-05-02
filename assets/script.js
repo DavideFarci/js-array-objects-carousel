@@ -30,6 +30,22 @@ const images = [
     }
 ];
 
+
+const containerHighlighted = document.querySelector(".highlighted");
+const containerThumbs = document.querySelector(".thumbs")
+
+for (let i = 0; i < images.length; i++) {
+    containerHighlighted.innerHTML += 
+    `<div class="image_container ${i == 0 ? "active" : ""}">
+    <img src="${images[i].image}" alt="">
+    <div class="title text-light fs-4 fw-bold rounded"> ${images[i].title}</div>
+    <div class="text text-light fs-6 rounded"> ${images[i].text}</div>
+    </div>`;
+    
+    
+    containerThumbs.innerHTML += `<img src="${images[i].image}" alt="" class="${i == 0 ? "active" : ""}">`;
+}
+
 let standardInt = setInterval(() => {
     listHighlighted[activeIndex].classList.remove("active");
     listThumbs[activeIndex].classList.remove("active");
@@ -39,22 +55,7 @@ let standardInt = setInterval(() => {
     }
     listHighlighted[activeIndex].classList.add("active");
     listThumbs[activeIndex].classList.add("active");;
-}, 5000);
-
-const containerHighlighted = document.querySelector(".highlighted");
-const containerThumbs = document.querySelector(".thumbs")
-
-for (let i = 0; i < images.length; i++) {
-    containerHighlighted.innerHTML += 
-    `<div class="image_container ${i == 0 ? "active" : ""}">
-        <img src="${images[i].image}" alt="">
-        <div class="title text-light fs-4 fw-bold rounded"> ${images[i].title}</div>
-        <div class="text text-light fs-6 rounded"> ${images[i].text}</div>
-    </div>`;
-
-
-    containerThumbs.innerHTML += `<img src="${images[i].image}" alt="" class="${i == 0 ? "active" : ""}">`;
-}
+}, 3000);
 
 // seleziono le immagini nell'html
 const listHighlighted = document.querySelectorAll(".highlighted .image_container");
@@ -80,7 +81,7 @@ btnReverse.addEventListener("click",
         }
         listHighlighted[activeIndex].classList.add("active");
         listThumbs[activeIndex].classList.add("active");
-    }, 5000);
+    }, 3000);
 });
 
 
