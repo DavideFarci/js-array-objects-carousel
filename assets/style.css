@@ -36,7 +36,6 @@ html {
 
 .highlighted .image_container .title {
     background-color: rgba(128, 128, 128, .5);
-    /* opacity: .5; */
     position: absolute;
     bottom: 60px;
     right: 10px;
@@ -45,7 +44,6 @@ html {
 
 .highlighted .image_container .text {
     background-color: rgba(128, 128, 128, .7);
-    /* opacity: .5; */
     text-align: right;
     position: absolute;
     bottom: 10px;
