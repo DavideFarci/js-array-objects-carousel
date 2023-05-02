@@ -30,7 +30,7 @@ const images = [
     }
 ];
 
-setInterval(() => {
+let standardInt = setInterval(() => {
     listHighlighted[activeIndex].classList.remove("active");
     listThumbs[activeIndex].classList.remove("active");
     activeIndex++;
@@ -38,7 +38,7 @@ setInterval(() => {
         activeIndex = 0;
     }
     listHighlighted[activeIndex].classList.add("active");
-    listThumbs[activeIndex].classList.add("active");
+    listThumbs[activeIndex].classList.add("active");;
 }, 5000);
 
 const containerHighlighted = document.querySelector(".highlighted");
@@ -65,6 +65,23 @@ const listThumbs = document.querySelectorAll(".thumbs img");
 //selziono i bottoni
 const btnPrev = document.querySelector(".btn-up");
 const btnNext = document.querySelector(".btn-down");
+const btnReverse = document.querySelector(".reversed_btn");
+
+btnReverse.addEventListener("click",
+    function() {
+    clearInterval(standardInt);
+    setInterval(() => {
+        listHighlighted[activeIndex].classList.remove("active");
+        listThumbs[activeIndex].classList.remove("active");
+        activeIndex--;
+        if (activeIndex < 0) {
+            //il meno uno nella riga 44 serve perchè la lunghezza dell'array è 5 ma l'ultimo elemento ha indice 4, diversamente restituirebbe indefined.
+            activeIndex = listHighlighted.length -1;
+        }
+        listHighlighted[activeIndex].classList.add("active");
+        listThumbs[activeIndex].classList.add("active");
+    }, 5000);
+});
 
 
 // definisco la variabile che rappresenta lo stato attuale del carosello
