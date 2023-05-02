@@ -44,8 +44,8 @@ for (let i = 0; i < images.length; i++) {
     containerHighlighted.innerHTML += 
     `<div class="image_container ${i == 0 ? "active" : ""}">
         <img src="${images[i].image}" alt="">
-        <div class="title"> ${images[i].title}</div>
-        <div class="text"> ${images[i].text}</div>
+        <div class="title text-light fs-4 fw-bold rounded"> ${images[i].title}</div>
+        <div class="text text-light fs-6 rounded"> ${images[i].text}</div>
     </div>`;
 
 
